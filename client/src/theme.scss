@@ -1,0 +1,132 @@
+@use '@angular/material' as mat;
+@import '@angular/material/theming';
+
+@import 'https://fonts.googleapis.com/icon?family=Material+Icons';
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&display=swap');
+
+// Primary color
+$gb-torakis-primary-palette: (
+        50 : #e3ecf0,
+        100 : #bacfda,
+        200 : #8cafc1,
+        300 : #5d8fa8,
+        400 : #3b7796,
+        500 : #185f83,
+        600 : #15577b,
+        700 : #114d70,
+        800 : #0e4366,
+        900 : #083253,
+        A100 : #87c4ff,
+        A200 : #54abff,
+        A400 : #2192ff,
+        A700 : #0885ff,
+        contrast: (
+                50 : #000000,
+                100 : #000000,
+                200 : #000000,
+                300 : #000000,
+                400 : #ffffff,
+                500 : #ffffff,
+                600 : #ffffff,
+                700 : #ffffff,
+                800 : #ffffff,
+                900 : #ffffff,
+                A100 : #000000,
+                A200 : #000000,
+                A400 : #ffffff,
+                A700 : #ffffff,
+        )
+);
+
+// Accent color
+$gb-torakis-palette: (
+        50 : #ebf7fb,
+        100 : #ceecf5,
+        200 : #151B49,
+        300 : #151B49,
+        400 : #151B49,
+        500 : #151B49,
+        600 : #151B49,
+        700 : #151B49,
+        800 : #151B49,
+        900 : #151B49,
+        A100 : #ffffff,
+        A200 : #d9f3ff,
+        A400 : #a6e4ff,
+        A700 : #151B49,
+        contrast: (
+                50 : #ffffff,
+                100 : #ffffff,
+                200 : #ffffff,
+                300 : #ffffff,
+                400 : #ffffff,
+                500 : #ffffff,
+                600 : #ffffff,
+                700 : #ffffff,
+                800 : #ffffff,
+                900 : #ffffff,
+                A100 : #ffffff,
+                A200 : #ffffff,
+                A400 : #ffffff,
+                A700 : #ffffff,
+        )
+);
+
+// Warn color
+/* For use in src/lib/core/theming/_palette.scss */
+$gb-torakis-warn-palette: (
+        50 : #ffe0e0,
+        100 : #ffb3b3,
+        200 : #ff8080,
+        300 : #ff4d4d,
+        400 : #ff2626,
+        500 : #ff0000,
+        600 : #ff0000,
+        700 : #ff0000,
+        800 : #ff0000,
+        900 : #ff0000,
+        A100 : #ffffff,
+        A200 : #fff2f2,
+        A400 : #ffbfbf,
+        A700 : #ffa6a6,
+        contrast: (
+                50 : #000000,
+                100 : #000000,
+                200 : #000000,
+                300 : #000000,
+                400 : #ffffff,
+                500 : #ffffff,
+                600 : #ffffff,
+                700 : #ffffff,
+                800 : #ffffff,
+                900 : #ffffff,
+                A100 : #000000,
+                A200 : #000000,
+                A400 : #000000,
+                A700 : #000000,
+        )
+);
+
+
+
+
+// Define your custom theme colors
+$gb-torakis-primary: mat.define-palette($gb-torakis-primary-palette);
+$gb-torakis-accent: mat.define-palette($gb-torakis-palette);
+$gb-torakis-warn: mat.define-palette($gb-torakis-warn-palette);
+$gb-torakis-typography: mat-typography-config(
+        $font-family: '"Open Sans", "Helvetica Neue", sans-serif',
+);
+
+$gb-torakis-theme: mat.define-light-theme((
+        color: (
+                primary: $gb-torakis-primary,
+                accent: $gb-torakis-accent,
+                warn: $gb-torakis-warn,
+        ),
+        typography: $gb-torakis-typography,
+        density: 0,
+));
+
+// Apply the custom theme as the default theme
+@include angular-material-theme($gb-torakis-theme);

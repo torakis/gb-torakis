@@ -1,0 +1,71 @@
+<div class="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]">
+    <div class="bg-white px-6 py-12 shadow sm:rounded-lg sm:px-12">
+        <form novalidate [formGroup]="calculatorForm" class="space-y-6">
+            <mat-select [(value)]="selectedCountry" (selectionChange)="onCountryChange($event.value)" appAutoFocus>
+                <mat-option *ngFor="let country of countries" [value]="country">
+                {{ country }}
+               </mat-option>
+              </mat-select>
+
+            Vat rates
+            <mat-radio-group formControlName="selectedVatRate" (change)="onVatRateChange($event.value)" 
+                class="mat-radio-button-horizontal">
+                <mat-radio-button *ngFor="let vatRate of selectedVatRates"
+                    [value]="vatRate">{{vatRate}} %</mat-radio-button>
+            </mat-radio-group>
+
+            <mat-radio-group class="w-full" formControlName="selectedOption" (change)="onSelectionChange($event)">
+                <div class="amount">
+                    <mat-radio-button [value]="AmountType.netAmount">
+                        <span>
+                            Price without VAT      
+                        </span>
+                    </mat-radio-button>
+
+                    <mat-form-field class="w-2/5 pt-5">
+                        <input matInput appTwoDecimalPlaces appKeyupValidation type="text"
+                        formControlName="netAmount" 
+                        placeholder="0.00"
+                        (input)="onAmountChange(AmountType.netAmount)"
+                        (keyup)="validateInput(AmountType.netAmount)">
+                        <mat-error *ngIf="formErrors.netAmount">{{formErrors.netAmount}}</mat-error>
+                    </mat-form-field>  
+                </div>
+
+                <div class="amount">
+                    <mat-radio-button [value]="AmountType.vat">
+                        <span class="items-center">
+                            Value-Added Tax     
+                        </span>   
+                    </mat-radio-button>
+
+                    <mat-form-field class="w-2/5 pt-5">
+                        <input matInput appTwoDecimalPlaces appKeyupValidation type="text" 
+                        formControlName="vat" 
+                        placeholder="0"
+                        (input)="onAmountChange(AmountType.vat)"
+                        (keyup)="validateInput(AmountType.vat)">
+                    <mat-error *ngIf="formErrors.vat">{{formErrors.vat}}</mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="amount">
+                    <mat-radio-button [value]="AmountType.grossAmount">
+                        <span>
+                            Price incl. VAT    
+                        </span>                            
+                    </mat-radio-button>
+
+                    <mat-form-field class="w-2/5 pt-5">
+                        <input matInput appTwoDecimalPlaces appKeyupValidation type="text" 
+                        formControlName="grossAmount" 
+                        placeholder="0.00"
+                        (input)="onAmountChange(AmountType.grossAmount)"
+                        (keyup)="validateInput(AmountType.grossAmount)">
+                    <mat-error *ngIf="formErrors.grossAmount">{{formErrors.grossAmount}}</mat-error>
+                    </mat-form-field>
+                </div>
+            </mat-radio-group>
+        </form>
+    </div>
+</div>

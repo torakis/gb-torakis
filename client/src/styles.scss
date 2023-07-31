@@ -1,0 +1,33 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-radio-button-horizontal {
+    display: inline-flex;
+    margin-right: 10px;
+}
+
+.amount {
+  display: flex; justify-content: space-between; align-items: center;
+}
+
+.toolbar {
+  min-height: 10rem !important; 
+  height: 10rem !important;
+}
+
+.zoom60 {
+  zoom: 60%;
+}
+
+.zoom80 {
+  zoom: 80%;
+}
+
+.zoom100 {
+  zoom: 100%;
+}

@@ -1,0 +1,23 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { AppFooterComponent } from './app-footer.component';
+import { AppModule } from '../app.module';
+
+describe('AppFooterComponent', () => {
+  let component: AppFooterComponent;
+  let fixture: ComponentFixture<AppFooterComponent>;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [AppFooterComponent],
+      imports: [AppModule]
+    });
+    fixture = TestBed.createComponent(AppFooterComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
